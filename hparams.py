@@ -1,11 +1,14 @@
 import tensorflow as tf
 from text import symbols
+from collections import namedtuple
 
+def get_hparams(**kwargs):
+    return namedtuple('GenericDict', kwargs.keys())(**kwargs)
 
 def create_hparams(hparams_string=None, verbose=False):
     """Create model hyperparameters. Parse nondefault from given string."""
 
-    hparams = tf.contrib.training.HParams(
+    hparams = get_hparams(
         ################################
         # Experiment Parameters        #
         ################################
