@@ -1,9 +1,9 @@
 import tensorflow as tf
 from text import symbols
-from collections import namedtuple
+from types import SimpleNamespace
 
 def get_hparams(**kwargs):
-    return namedtuple('GenericDict', kwargs.keys())(**kwargs)
+    return SimpleNamespace(**kwargs)
 
 def create_hparams(hparams_string=None, verbose=False):
     """Create model hyperparameters. Parse nondefault from given string."""
